@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
+    </script>
+    <script src="../lib/movingObject.js"></script>
+  </head>
+  
+  <body>
+    <canvas id='game-display' height='500' width='500'></canvas>
+    
+    <script type='text/javascript'>    
+      var mo = new Asteroids.MovingObject({ 
+        position: [250, 250],
+        drawNodes: [[0, -100], [83, 83], [-83, 83]]
+      });
+    
+      var mo2 = new Asteroids.MovingObject({ 
+        position: [350, 50],
+        drawNodes: [[0, -100], [83, 83], [-83, 83]]
+      });
+    
+      var context = document.getElementById('game-display').getContext('2d');
+      mo.draw(context);
+      mo2.draw(context);
+    
+      var angle = Math.PI / 10;
+    
+      function rotate() {
+        context.save();
+        context.clearRect(0, 0, 1000, 1000);
+        context.translate(mo.position[0], mo.position[1]);
+        context.rotate(angle);
+        context.translate(-mo.position[0], -mo.position[1]);
+        mo.draw(context);
+        context.restore();
+        mo2.draw(context);  
+        angle += Math.PI / 10;
+      }
+      
+      $(document).on('keydown', function(event) {
+        if (event.keyCode === 39) { rotate(); }
+      });
+    </script>
+  </body>
+</html>
+
+

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
+    </script>
+    <script src='vendor/keymaster.js'></script>
+    <script src='lib/utils.js'></script>
+    <script src='lib/movingObject.js'></script>
+    <script src='lib/ship.js'></script>
+    <script src='lib/asteroid.js'></script>
+    <script src='lib/bullet.js'></script>
+    <script src='lib/game.js'></script>
+    <script src='lib/gameView.js'></script>
+    <link rel='stylesheet' type='text/css' href='stylesheets/style.css'>
+  </head>
+  
+  <body>
+    <canvas id='game-display' height='500' width='500'></canvas>
+    
+    <script>
+      var context = $('#game-display').get(0).getContext('2d');
+      var game = new Asteroids.Game();
+      var gameView = new Asteroids.GameView(game, context);
+      gameView.start();
+    </script>
+  </body>
+</html>
+
+
