@@ -1,0 +1,22 @@
+body, h1, canvas {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body {
+  font-family: lucida grande;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin: 10px;
+}
+
+#game-display {
+  border: 5px solid black;
+  border-radius: 10px;
+  display: block;
+  margin: auto;
+}
